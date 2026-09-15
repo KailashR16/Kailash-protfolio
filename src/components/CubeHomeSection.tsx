@@ -6,7 +6,6 @@ import {
   Mail, 
   Phone, 
   ArrowRight, 
-  Sparkles,
   Database,
   BarChart3,
   Code2
@@ -31,11 +30,6 @@ export const CubeHomeSection: React.FC<CubeHomeSectionProps> = ({
         
         {/* Left Column: Hero Text & Social Links */}
         <div className="lg:col-span-7 flex flex-col justify-center space-y-4 text-center lg:text-left order-2 lg:order-1">
-          <div className="inline-flex items-center gap-2 self-center lg:self-start px-3 py-1 rounded-full bg-[var(--main-color)]/15 border border-[var(--main-color)]/30 text-[var(--main-color)] text-xs font-mono uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Welcome to my 3D Portfolio</span>
-          </div>
-
           <div className="space-y-1">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-medium text-white/90">
               Hello I'm

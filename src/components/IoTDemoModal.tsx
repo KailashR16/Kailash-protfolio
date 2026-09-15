@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { X, Camera, Bell, Shield, Wifi, Play, CheckCircle2 } from 'lucide-react';
 import { sounds } from '../utils/audio';
 
@@ -9,18 +9,11 @@ interface IoTDemoModalProps {
 
 export const IoTDemoModal: React.FC<IoTDemoModalProps> = ({ isOpen, onClose }) => {
   const [status, setStatus] = useState<'IDLE' | 'DETECTING' | 'CAPTURING' | 'DISPATCHED'>('IDLE');
-  const [avatarUrl, setAvatarUrl] = useState<string>('/developer_avatar.jpg');
+  const avatarUrl = '/kailash off photo.jpeg';
   const [logs, setLogs] = useState<string[]>([
     '[ESP32-CAM] Booted successfully. WiFi Connected: 192.168.1.42',
     '[PIR_SENSOR] Calibration complete. Armed & monitoring doorway.',
   ]);
-
-  useEffect(() => {
-    const stored = localStorage.getItem('kailash_custom_avatar_exact');
-    if (stored) {
-      setAvatarUrl(stored);
-    }
-  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -105,6 +98,7 @@ export const IoTDemoModal: React.FC<IoTDemoModalProps> = ({ isOpen, onClose }) =
             src={avatarUrl} 
             alt="Simulated Camera View"
             referrerPolicy="no-referrer"
+            style={{ objectPosition: '50% 25%' }}
             className={`w-full h-full object-cover filter ${
               status === 'DETECTING' ? 'brightness-125 contrast-125' : 
               status === 'CAPTURING' ? 'brightness-150' : 'brightness-75'
